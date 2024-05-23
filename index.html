@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dk Official</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Open+Sans:wght@400;700&family=Lobster&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #fff;
+            overflow-x: hidden;
+            background: black;
+            transition: background 0.5s, color 0.5s;
+            scroll-behavior: smooth;
+        }
+        .bg-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            background: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/221808/sky.jpg') no-repeat center center/cover;
+            animation: backgroundAnimation 30s infinite alternate;
+        }
+        @keyframes backgroundAnimation {
+            0% { background-position: 0% 0%; }
+            100% { background-position: 100% 100%; }
+        }
+        header {
+            display: flex;
+            align-items: center;
+            background-color: rgba(0, 0, 0, 0.8);
+            color: #fff;
+            padding: 20px;
+            position: relative;
+            z-index: 1;
+            border-bottom: 2px solid #444;
+            width: 100%;
+        }
+        header img {
+            height: calc(100vh / 4); /* One-fourth of the viewport height */
+            width: auto;
+            border: 2px solid #fff;
+        }
+        header h1 {
+            margin: 0;
+            margin-left: 20px;
+            font-family: 'Lobster', cursive;
+            font-weight: 700;
+            position: relative;
+            color: transparent;
+            background-image: linear-gradient(to right, #ff00ff, #00ffff);
+            -webkit-background-clip: text;
+            animation: skyCrackerAnimation 2s infinite;
+        }
+        @keyframes skyCrackerAnimation {
+            0%, 100% { text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 255, 255, 0.6), 0 0 30px rgba(255, 255, 255, 0.4), 0 0 40px rgba(255, 255, 255, 0.2); }
+            50% { text-shadow: 0 0 20px rgba(255, 0, 0, 0.8), 0 0 40px rgba(255, 0, 0, 0.6), 0 0 60px rgba(255, 0, 0, 0.4), 0 0 80px rgba(255, 0, 0, 0.2); }
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: rgba(0, 0, 0, 0.8);
+            position: relative;
+            z-index: 1;
+            border-bottom: 2px solid #444;
+            width: 100%;
+            position: sticky;
+            top: 0;
+        }
+        nav a {
+            color: #fff;
+            padding: 15px 20px;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-family: 'Open Sans', sans-serif;
+            transition: color 0.3s;
+        }
+        nav a:hover {
+            color: #ff0;
+        }
+        .theme-toggle {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            z-index: 2;
+        }
+        .theme-toggle.light {
+            background-color: #fff;
+            color: #000;
+        }
+        main {
+            padding: 20px;
+            max-width: 1200px;
+            margin: auto;
+            background-color: rgba(0, 0, 0, 0.8);
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+            position: relative;
+            z-index: 1;
+            border: 2px solid #444;
+        }
+        section {
+            margin-bottom: 40px;
+        }
+        section h2 {
+            border-bottom: 2px solid #444;
+            padding-bottom: 10px;
+            font-family: 'Lobster', cursive;
+            font-weight: 700;
+            color: transparent;
+            background-image: linear-gradient(to right, #ff00ff, #00ffff);
+            -webkit-background-clip: text;
+            animation: fadeInUp 1s ease-in-out;
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translate3d(0, 40px, 0);
+            }
+            to {
+                opacity: 1;
+                transform: translate3d(0, 0, 0);
+            }
+        }
+        section p {
+            line-height: 1.6;
+            font-family: 'Open Sans', sans-serif;
+            color: #ddd;
+            animation: fadeIn 1s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        .highlight {
+            background-color: #ff0;
+            font-family: 'Lobster', cursive;
+            padding: 0 5px;
+            color: transparent;
+            background-image: linear-gradient(to right, #ff00ff, #00ffff);
+            -webkit-background-clip: text;
+        }
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .contact-form input, .contact-form textarea {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .contact-form button {
+            padding: 10px;
+            font-size: 16px;
+            background-color: #444;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .contact-form button:hover {
+            background-color: #555;
+        }
+        .commands {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .command-button {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-family: 'Open Sans', sans-serif;
+        }
+        .command-button:hover {
+            background-color: #555;
+        }
+        .go-up, .go-down {
+            position: fixed;
+            right: 20px;
+            padding: 10px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            z-index: 2;
+        }
+        .go-up {
+            bottom: 70px;
+        }
+        .go-down {
+            bottom: 20px;
+        }
+        footer {
+            background-color: rgba(0, 0, 0, 0.8);
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+            z-index: 1;
+            border-top: 2px solid #444;
+        }
+        .social-icons {
+            margin-top: 10px;
+        }
+        .social-icons a {
+            color: #fff;
+            margin: 0 10px;
+            text-decoration: none;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+            z-index: 3;
+        }
+        .modal.active {
+            display: flex;
+        }
+        .modal-header, .modal-body {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            width: 80%;
+            max-width: 600px;
+        }
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid #444;
+            padding-bottom: 10px;
+            font-family: 'Lobster', cursive;
+            font-weight: 700;
+        }
+        .modal-body {
+            padding: 20px 0;
+        }
+        .close-button {
+            cursor: pointer;
+            font-size: 24px;
+            color: #fff;
+        }
+        .tooltip {
+            position: relative;
+            display: inline-block;
+        }
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 120px;
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            border-radius: 5px;
+            padding: 5px;
+            position: absolute;
+            z-index: 1;
+            bottom: 100%;
+            left: 50%;
+            margin-left: -60px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
+        }
+        .dark-mode {
+            background-color: #121212;
+            color: #fff;
+        }
+        .light-mode {
+            background-color: #f5f5f5;
+            color: #000;
+        }
+        .light-mode nav, .light-mode footer {
+            background-color: #fff;
+            color: #000;
+        }
+        .light-mode .command-button {
+            background-color: #ddd;
+            color: #000;
+        }
+        .light-mode .command-button:hover {
+            background-color: #ccc;
+        }
+    </style>
+</head>
+<body data-spy="scroll" data-target="nav" data-offset="60">
+    <div class="bg-animation"></div>
+    <header>
+        <img src="https://www.dropbox.com/scl/fi/5ltks3g2kdug791y4hsg6/IMG_20240408_201841.png?rlkey=3jdibfqul8lbfwavohm7fztfv&st=ibih7zx9&dl=1" alt="Dk Logo">
+        <h1 class="animate__animated animate__fadeIn">Dk Official</h1>
+    </header>
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
+        <a href="#commands">Commands</a>
+        <a href="#modal" id="openModal">Open Modal</a>
+    </nav>
+    <button class="theme-toggle">Toggle Theme</button>
+    <main>
+        <section id="home">
+            <h2>Home</h2>
+            <p>Welcome to <span class="highlight">Dk Official</span> website. Explore our content and get to know more about us.</p>
+        </section>
+        <section id="about">
+            <h2>About</h2>
+            <p>Hello Domsto, I am Dhruv (GODXWARRIOR). This is my startup website page.</p>
+        </section>
+        <section id="services">
+            <h2>Services</h2>
+            <p>We offer a range of services to meet your needs. Whether you are looking for professional advice, consulting, or specialized solutions, we have you covered.</p>
+        </section>
+        <section id="contact">
+            <h2>Contact</h2>
+            <form class="contact-form" id="contactForm">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </section>
+        <section id="commands">
+            <h2>Commands</h2>
+            <div class="commands">
+                <button class="command-button tooltip" id="refreshPage">Refresh Page<span class="tooltiptext">Reload the webpage</span></button>
+                <button class="command-button tooltip" id="closePage">Force Close Page<span class="tooltiptext">Close the webpage</span></button>
+                <button class="command-button tooltip">Owner: GODXWARRIOR<span class="tooltiptext">Information about the owner</span></button>
+                <button class="command-button tooltip">List<span class="tooltiptext">Display list of items</span></button>
+                <button class="command-button tooltip" id="cookiePermission">Access Cookie Permission<span class="tooltiptext">Request cookie permission</span></button>
+                <button class="command-button tooltip" id="allowAllPermissions">Allow All Permissions<span class="tooltiptext">Grant all permissions</span></button>
+                <!-- Add more commands here as needed -->
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Dk Official. All rights reserved.</p>
+        <div class="social-icons">
+            <a href="https://www.instagram.com/__dhruv__x__arya__x__?igsh=c3NodjY0eHowbjA="><i class="fab fa-instagram"></i> Instagram</a>
+            <a href="https://t.me/Dhruv_Aryaa"><i class="fab fa-telegram"></i> Telegram</a>
+        </div>
+    </footer>
+
+    <button class="go-up" id="goUp"><i class="fas fa-arrow-up"></i></button>
+    <button class="go-down" id="goDown"><i class="fas fa-arrow-down"></i></button>
+
+    <!-- Modal Popup -->
+    <div id="myModal" class="modal">
+        <div class="modal-header">
+            <h3>Modal Title</h3>
+            <span class="close-button" id="closeModal">&times;</span>
+        </div>
+        <div class="modal-body">
+            <p>This is a sample modal popup content.</p>
+        </div>
+    </div>
+
+    <!-- Chart.js Library -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Email.js Library -->
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <!-- Toastr Notifications Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+    <script>
+        // Initialize EmailJS
+        (function() {
+            emailjs.init("YOUR_USER_ID"); // Replace with your EmailJS user ID
+        })();
+
+        // Request Notification Permission
+        if (Notification.permission !== 'granted') {
+            Notification.requestPermission().then(permission => {
+                if (permission === 'granted') {
+                    new Notification("Welcome to Dk Official!");
+                }
+            });
+        }
+
+        // Send Notification
+        function sendNotification(title, body) {
+            if (Notification.permission === 'granted') {
+                new Notification(title, { body: body });
+            }
+        }
+
+        // Send Email
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            let templateParams = {
+                name: this.name.value,
+                email: this.email.value,
+                message: this.message.value
+            };
+            emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', templateParams)
+                .then(function(response) {
+                    toastr.success('Email sent successfully!');
+                    document.getElementById('contactForm').reset();
+                }, function(error) {
+                    toastr.error('Failed to send email. Please try again.');
+                });
+        });
+
+        // Theme Toggle
+        document.querySelector('.theme-toggle').addEventListener('click', function() {
+            document.body.classList.toggle('light-mode');
+            document.body.classList.toggle('dark-mode');
+        });
+
+        // Command Buttons
+        document.getElementById('refreshPage').addEventListener('click', function() {
+            location.reload();
+        });
+
+        document.getElementById('closePage').addEventListener('click', function() {
+            window.close();
+        });
+
+        document.getElementById('cookiePermission').addEventListener('click', function() {
+            navigator.permissions.query({name: 'cookie'}).then(function(permissionStatus) {
+                alert(`Cookie Permission: ${permissionStatus.state}`);
+            });
+        });
+
+        document.getElementById('allowAllPermissions').addEventListener('click', function() {
+            // This is a placeholder for granting all permissions
+            alert('All permissions have been granted (simulated).');
+        });
+
+        // Go Up and Go Down Buttons
+        document.getElementById('goUp').addEventListener('click', function() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        document.getElementById('goDown').addEventListener('click', function() {
+            window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+        });
+
+        // Modal Popup
+        document.getElementById('openModal').addEventListener('click', function(event) {
+            event.preventDefault();
+            document.getElementById('myModal').classList.add('active');
+        });
+
+        document.getElementById('closeModal').addEventListener('click', function() {
+            document.getElementById('myModal').classList.remove('active');
+        });
+
+        window.addEventListener('click', function(event) {
+            if (event.target === document.getElementById('myModal')) {
+                document.getElementById('myModal').classList.remove('active');
+            }
+        });
+
+        // Additional features (e.g., weather updates, date and time)
+        function updateDateTime() {
+            let now = new Date();
+            document.getElementById('datetime').textContent = now.toLocaleString();
+        }
+        setInterval(updateDateTime, 1000);
+        updateDateTime();
+    </script>
+</body>
+</html>
