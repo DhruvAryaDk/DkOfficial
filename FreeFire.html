@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Fire Max T20 Tournament - Dk Official</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Press+Start+2P&display=swap');
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: url('https://www.dropbox.com/scl/fi/n9z4mzyovww0092wyyswy/15695-Free-Fire.jpg?rlkey=npbdidvfoxpopw5f5c1pks23q&dl=1') no-repeat center center fixed;
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+            color: #fff;
+            text-align: center;
+            animation: moveBg 20s infinite linear;
+        }
+
+        .container {
+            background: rgba(0, 0, 0, 0.8);
+            border: 3px solid #ffcc00;
+            border-radius: 15px;
+            padding: 20px;
+            margin: 50px auto;
+            width: 80%;
+            max-width: 800px;
+            animation: fadeIn 3s ease-in-out;
+        }
+
+        .main-title {
+            font-family: 'Press Start 2P', cursive;
+            font-size: 3em;
+            margin-bottom: 20px;
+            text-shadow: 3px 3px 6px #000;
+            animation: textGlow 2s infinite alternate;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px #000;
+            font-weight: bold;
+        }
+
+        p {
+            font-size: 1.2em;
+            line-height: 1.6;
+        }
+
+        .highlight {
+            color: #ffcc00;
+            font-weight: bold;
+        }
+
+        .guidelines {
+            text-align: left;
+            margin-top: 30px;
+        }
+
+        .guidelines ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .guidelines ul li {
+            margin-bottom: 10px;
+            font-size: 1em;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes moveBg {
+            0% { background-position: 0% 0%; }
+            50% { background-position: 100% 100%; }
+            100% { background-position: 0% 0%; }
+        }
+
+        @keyframes textGlow {
+            0% { color: #ffcc00; }
+            100% { color: #00ffcc; }
+        }
+
+        .notification {
+            background: rgba(255, 0, 0, 0.8);
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            font-size: 1.2em;
+        }
+
+        .registration-form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .registration-form input {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: none;
+            font-size: 1em;
+        }
+
+        .registration-form button {
+            padding: 10px 20px;
+            border-radius: 5px;
+            border: none;
+            background-color: #ffcc00;
+            color: #000;
+            font-size: 1.2em;
+            cursor: pointer;
+        }
+
+        .participant-section {
+            display: none;
+            margin-top: 30px;
+            padding: 20px;
+            border-radius: 15px;
+            background: rgba(0, 0, 0, 0.8);
+            animation: participantGlow 2s infinite alternate;
+        }
+
+        .participant-list, .announcement-section, .admin-dashboard {
+            margin: 20px 0;
+        }
+
+        .participant-list ul, .announcement-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .announcement-form input, .admin-dashboard input {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: none;
+            font-size: 1em;
+        }
+
+        .announcement-form button, .admin-dashboard button {
+            padding: 10px 20px;
+            border-radius: 5px;
+            border: none;
+            background-color: #ffcc00;
+            color: #000;
+            font-size: 1.2em;
+            cursor: pointer;
+        }
+
+        @keyframes participantGlow {
+            0% { box-shadow: 0 0 20px #ffcc00; }
+            100% { box-shadow: 0 0 20px #00ffcc; }
+        }
+
+        .participant-section {
+            animation: participantGlow 2s infinite alternate;
+        }
+
+        .admin-login {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .admin-login input {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: none;
+            font-size: 1em;
+        }
+
+        .admin-login button {
+            padding: 10px 20px;
+            border-radius: 5px;
+            border: none;
+            background-color: #ffcc00;
+            color: #000;
+            font-size: 1.2em;
+            cursor: pointer;
+        }
+
+        .contact {
+            margin-top: 20px;
+            font-size: 1em;
+            font-weight: bold;
+        }
+
+        .participant-chart, .password-chart {
+            border: 2px solid #ffcc00;
+            border-radius: 10px;
+            padding: 10px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="admin-login">
+        <input type="password" id="admin-password" placeholder="Admin Password">
+        <button onclick="adminLogin()">Login</button>
+    </div>
+    <div class="container">
+        <div class="main-title">Dk Official</div>
+        <h1>Free Fire Max T20 Tournament</h1>
+        <p class="notification">Hello Domsto, the Free Fire tournament is held on 1 June at 4:00 PM. Only 20 persons registered with FF username. You can participate with only ₹40 by contacting me via UID.</p>
+        <p>
+            <span class="highlight">Introduction:</span><br>
+            Free Fire Max, the captivating battle royale sensation, has taken the gaming world by storm. In this thrilling tournament, you have the opportunity to immerse yourself in heart-pounding battles, showcasing your gaming prowess, tactical brilliance, and mastery of the game. Unleash your strategic thinking, teamwork, and survival skills as you compete against fellow students in the ultimate test of wit and reflexes.
+        </p>
+        <p>
+            Dear Free Fire enthusiasts, Wissenaire’24 is back with another thrilling event. This time we are conducting a Free Fire Max Tournament. If you already have a team, get off, compete against your teammates, and see who is best among your team. Start preparing yourself to fight against your friends and other college students to claim the prize pool.
+        </p>
+        <p>
+            For every kill, a user gets ₹20. <br>
+            1st prize = ₹100 + kill prize, <br>
+            2nd prize = ₹80 + kill prize, <br>
+            3rd prize = ₹70 + kill prize. <br>
+            <span class="highlight">Note:</span> Per kill prize contributed by participants.
+        </p>
+        <img src="https://www.dropbox.com/scl/fi/pgc33yh4yd8gg5vggs53f/3992k81DamGUjS.jpg?rlkey=kcjshybm84q2vv922qtb5ddw3&dl=1" alt="Tournament Image">
+        <p class="guidelines">
+            <span class="highlight">Fair Play:</span> Cheating, hacking, teaming up, or exploiting game rules is strictly prohibited and will result in immediate disqualification from the tournament.
+            <br>If any changes are made during the tournament, they will be informed during the match time through the respective WhatsApp groups.
+            <br>In case of any discrepancies, the decision of team Wissenaire will be final.
+        </p>
+        <div class="registration-form">
+            <input type="text" id="real-name" placeholder="Enter your Real Name" required>
+            <input type="text" id="ff-uid" placeholder="Enter your FF UID" required>
+            <input type="password" id="password" placeholder="Enter your Password" required>
+            <button onclick="registerUser()">Register</button>
+        </div>
+        <div class="participant-section" id="participant-section">
+            <h2>Participants</h2>
+            <div class="participant-list">
+                <ul id="participants">
+                    <!-- Participants will be listed here -->
+                </ul>
+            </div>
+            <div class="participant-chart">
+                <h3>Participants Chart</h3>
+                <ul id="participant-chart">
+                    <!-- Participants Chart will be listed here -->
+                </ul>
+            </div>
+            <div class="announcement-section">
+                <h2>Announcements</h2>
+                <ul id="announcements">
+                    <!-- Announcements will be listed here -->
+                </ul>
+            </div>
+            <div class="admin-dashboard" id="admin-controls" style="display: none;">
+                <h2>Admin Controls</h2>
+                <div class="announcement-form">
+                    <input type="text" id="new-announcement" placeholder="Enter announcement">
+                    <button onclick="saveAnnouncement()">Save Announcement</button>
+                </div>
+                <button onclick="startCompetition()">Start Competition</button>
+                <button onclick="sendNotification()">Send Notification</button>
+                <h3>Manage Participants</h3>
+                <ul id="admin-participants">
+                    <!-- Participants for admin control -->
+                </ul>
+                <div class="password-chart">
+                    <h3>Set Participant Passwords</h3>
+                    <ul id="password-chart">
+                        <!-- Passwords will be listed here -->
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <p class="contact">
+            Telegram: <a href="https://t.me/Dhruv_Aryaa" target="_blank">t.me/Dhruv_Aryaa</a><br>
+            WhatsApp no.: 7037700795
+        </p>
+    </div>
+    <script>
+        const participants = JSON.parse(localStorage.getItem('participants')) || [];
+        const announcements = JSON.parse(localStorage.getItem('announcements')) || [];
+        const passwords = JSON.parse(localStorage.getItem('passwords')) || [];
+        const adminPassword = "@7037700795GODXWARRIOR";
+        let currentUser = JSON.parse(localStorage.getItem('currentUser')) || null;
+
+        function registerUser() {
+            if (participants.length >= 20) {
+                alert('Registration is closed.');
+                return;
+            }
+
+            const realName = document.getElementById('real-name').value;
+            const ffUid = document.getElementById('ff-uid').value;
+            const password = document.getElementById('password').value;
+
+            if (!realName || !ffUid || !password) {
+                alert('Please fill in all fields');
+                return;
+            }
+
+            if (participants.some(participant => participant.ffUid === ffUid || participant.password === password)) {
+                alert('FF UID or Password already registered');
+                return;
+            }
+
+            if (!passwords.includes(password)) {
+                alert('Invalid Password');
+                return;
+            }
+
+            const newUser = { realName, ffUid, password };
+            participants.push(newUser);
+            currentUser = newUser;
+            localStorage.setItem('participants', JSON.stringify(participants));
+            localStorage.setItem('currentUser', JSON.stringify(currentUser));
+            displayParticipants();
+            toggleParticipantSection(true);
+        }
+
+        function displayParticipants() {
+            const participantList = document.getElementById('participants');
+            participantList.innerHTML = '';
+            participants.forEach(participant => {
+                const listItem = document.createElement('li');
+                listItem.textContent = `${participant.realName} (FF UID: ${participant.ffUid})`;
+                participantList.appendChild(listItem);
+            });
+
+            const participantChart = document.getElementById('participant-chart');
+            participantChart.innerHTML = '';
+            participants.forEach(participant => {
+                const listItem = document.createElement('li');
+                listItem.textContent = `Name: ${participant.realName}, FF UID: ${participant.ffUid}`;
+                participantChart.appendChild(listItem);
+            });
+
+            updateAdminParticipantList();
+        }
+
+        function toggleParticipantSection(show) {
+            const participantSection = document.getElementById('participant-section');
+            if (show) {
+                participantSection.style.display = 'block';
+                displayAnnouncements();
+            } else {
+                participantSection.style.display = 'none';
+            }
+        }
+
+        function adminLogin() {
+            const password = document.getElementById('admin-password').value;
+            if (password === adminPassword) {
+                document.getElementById('admin-controls').style.display = 'block';
+                document.getElementById('participant-section').style.display = 'block';
+            } else {
+                alert('Invalid password');
+            }
+        }
+
+        function saveAnnouncement() {
+            const newAnnouncement = document.getElementById('new-announcement').value;
+            if (newAnnouncement) {
+                announcements.push(newAnnouncement);
+                localStorage.setItem('announcements', JSON.stringify(announcements));
+                displayAnnouncements();
+                document.getElementById('new-announcement').value = '';
+            }
+        }
+
+        function displayAnnouncements() {
+            const announcementList = document.getElementById('announcements');
+            announcementList.innerHTML = '';
+            announcements.forEach(announcement => {
+                const listItem = document.createElement('li');
+                listItem.textContent = announcement;
+                listItem.onclick = () => editAnnouncement(announcement, listItem);
+                announcementList.appendChild(listItem);
+            });
+        }
+
+        function editAnnouncement(announcement, listItem) {
+            if (confirm('Edit this announcement?')) {
+                const newAnnouncement = prompt('Enter new announcement text:', announcement);
+                if (newAnnouncement) {
+                    const index = announcements.indexOf(announcement);
+                    announcements[index] = newAnnouncement;
+                    localStorage.setItem('announcements', JSON.stringify(announcements));
+                    displayAnnouncements();
+                }
+            }
+        }
+
+        function startCompetition() {
+            alert('Competition started!');
+        }
+
+        function sendNotification() {
+            if (currentUser) {
+                alert('Notification sent to all participants!');
+            } else {
+                alert('Only registered participants can receive notifications');
+            }
+        }
+
+        function removeParticipant(ffUid) {
+            const index = participants.findIndex(participant => participant.ffUid === ffUid);
+            if (index > -1) {
+                participants.splice(index, 1);
+                localStorage.setItem('participants', JSON.stringify(participants));
+                displayParticipants();
+                if (currentUser && currentUser.ffUid === ffUid) {
+                    currentUser = null;
+                    localStorage.removeItem('currentUser');
+                    toggleParticipantSection(false);
+                }
+            }
+        }
+
+        function updateAdminParticipantList() {
+            const adminParticipantList = document.getElementById('admin-participants');
+            adminParticipantList.innerHTML = '';
+            participants.forEach(participant => {
+                const listItem = document.createElement('li');
+                listItem.textContent = `Name: ${participant.realName}, FF UID: ${participant.ffUid}, Password: ${participant.password}`;
+                const removeButton = document.createElement('button');
+                removeButton.textContent = 'Remove';
+                removeButton.onclick = () => removeParticipant(participant.ffUid);
+                listItem.appendChild(removeButton);
+                adminParticipantList.appendChild(listItem);
+            });
+
+            const passwordChart = document.getElementById('password-chart');
+            passwordChart.innerHTML = '';
+            for (let i = 0; i < 20; i++) {
+                const listItem = document.createElement('li');
+                const passwordInput = document.createElement('input');
+                passwordInput.type = 'text';
+                passwordInput.value = passwords[i] || '';
+                passwordInput.onchange = (e) => savePassword(i, e.target.value);
+                listItem.appendChild(passwordInput);
+                passwordChart.appendChild(listItem);
+            }
+        }
+
+        function savePassword(index, value) {
+            passwords[index] = value;
+            localStorage.setItem('passwords', JSON.stringify(passwords));
+        }
+
+        window.onload = function() {
+            if (currentUser) {
+                toggleParticipantSection(true);
+            }
+            displayParticipants();
+        }
+    </script>
+</body>
+</html>
