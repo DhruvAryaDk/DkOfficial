@@ -3,335 +3,320 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Free Fire Max T20 Tournament - Dk Official</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Press+Start+2P&display=swap');
-
-        body {
-            font-family: 'Roboto', sans-serif;
-            background: url('https://www.dropbox.com/scl/fi/n9z4mzyovww0092wyyswy/15695-Free-Fire.jpg?rlkey=npbdidvfoxpopw5f5c1pks23q&dl=1') no-repeat center center fixed;
-            background-size: cover;
-            margin: 0;
-            padding: 0;
-            color: #fff;
-            text-align: center;
-            animation: moveBg 20s infinite linear;
-        }
-
-        .container {
-            background: rgba(0, 0, 0, 0.8);
-            border: 3px solid #ffcc00;
-            border-radius: 15px;
-            padding: 20px;
-            margin: 50px auto;
-            width: 80%;
-            max-width: 800px;
-            animation: fadeIn 3s ease-in-out;
-            position: relative;
-        }
-
-        .main-title {
-            font-family: 'Press Start 2P', cursive;
-            font-size: 3em;
-            margin-bottom: 20px;
-            text-shadow: 3px 3px 6px #000;
-            animation: textGlow 2s infinite alternate, textColor 5s infinite;
-        }
-
-        h1 {
-            font-size: 2.5em;
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 4px #000;
-            font-weight: bold;
-            animation: textMove 5s infinite alternate;
-        }
-
-        p {
-            font-size: 1.2em;
-            line-height: 1.6;
-            animation: fadeIn 5s infinite alternate;
-        }
-
-        .highlight {
-            color: #ffcc00;
-            font-weight: bold;
-            animation: highlightGlow 2s infinite alternate;
-        }
-
-        .guidelines {
-            text-align: left;
-            margin-top: 30px;
-            animation: slideIn 3s ease-in-out;
-        }
-
-        .guidelines ul {
-            list-style-type: none;
-            padding: 0;
-        }
-
-        .guidelines ul li {
-            margin-bottom: 10px;
-            font-size: 1em;
-            animation: fadeIn 5s infinite alternate;
-        }
-
-        img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 10px;
-            margin-top: 20px;
-            animation: fadeIn 3s ease-in-out;
-        }
-
-        .notification {
-            background: linear-gradient(45deg, #ffcc00, #00ffcc);
-            padding: 15px;
-            border-radius: 10px;
-            margin: 20px 0;
-            animation: colorCycle 10s infinite linear, floatText 3s infinite;
-            text-align: center;
-        }
-
-        .notification .highlight {
-            font-size: 1.3em;
-            font-weight: bold;
-            animation: glowText 2s infinite alternate;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        @keyframes moveBg {
-            0% { background-position: 0% 0%; }
-            50% { background-position: 100% 100%; }
-            100% { background-position: 0% 0%; }
-        }
-
-        @keyframes textGlow {
-            0% { text-shadow: 0 0 10px #ffcc00; }
-            100% { text-shadow: 0 0 20px #00ffcc; }
-        }
-
-        @keyframes textColor {
-            0%, 100% { color: #ffcc00; }
-            50% { color: #00ffcc; }
-        }
-
-        @keyframes textMove {
-            0%, 100% { transform: translateX(0); }
-            50% { transform: translateX(10px); }
-        }
-
-        @keyframes highlightGlow {
-            0% { color: #ffcc00; text-shadow: 0 0 5px #ffcc00; }
-            100% { color: #00ffcc; text-shadow: 0 0 20px #00ffcc; }
-        }
-
-        @keyframes slideIn {
-            from { transform: translateX(-100%); }
-            to { transform: translateX(0); }
-        }
-
-        @keyframes fadeInOut {
-            0%, 100% { opacity: 0; }
-            50% { opacity: 1; }
-        }
-
-        @keyframes buttonGlow {
-            0% { box-shadow: 0 0 10px #ffcc00; }
-            100% { box-shadow: 0 0 20px #00ffcc; }
-        }
-
-        @keyframes participantGlow {
-            0% { box-shadow: 0 0 20px #ffcc00; }
-            100% { box-shadow: 0 0 20px #00ffcc; }
-        }
-
-        @keyframes glowText {
-            0% { text-shadow: 0 0 5px #ffcc00; }
-            100% { text-shadow: 0 0 20px #00ffcc; }
-        }
-
-        @keyframes colorCycle {
-            0% { background: linear-gradient(45deg, #ffcc00, #00ffcc); }
-            50% { background: linear-gradient(45deg, #00ffcc, #ffcc00); }
-            100% { background: linear-gradient(45deg, #ffcc00, #00ffcc); }
-        }
-
-        @keyframes floatText {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
-
-        .registration-form {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-top: 20px;
-        }
-
-        .registration-form input {
-            padding: 10px;
-            margin: 10px 0;
-            border-radius: 5px;
-            border: none;
-            font-size: 1em;
-        }
-
-        .registration-form button {
-            padding: 10px 20px;
-            border-radius: 5px;
-            border: none;
-            background-color: #ffcc00;
-            color: #000;
-            font-size: 1.2em;
-            cursor: pointer;
-            animation: buttonGlow 2s infinite alternate;
-        }
-
-        .participant-section {
-            display: none;
-            margin-top: 30px;
-            padding: 20px;
-            border-radius: 15px;
-            background: rgba(0, 0, 0, 0.8);
-            animation: participantGlow 2s infinite alternate;
-        }
-
-        .glowing-text {
-            font-size: 2em;
-            margin: 20px 0;
-            animation: glowText 2s infinite alternate;
-        }
-    </style>
+    <title>DPSVMIC</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
-    <audio id="background-music" loop>
-        <source src="https://www.dropbox.com/scl/fi/dg7xzs1cmk1r5q94qx88g/Garena_Free_Fire___One_Man_Panch_New_Update__Theme_Song__-256k.mp3?rlkey=vu5fpfo1fyblxko3s9icrmezx&dl=1" type="audio/mpeg">
-        Your browser does not support the audio element.
-    </audio>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <a href="#" class="navbar-brand">DPSVMIC BILARI</a>
+        <button id="navbarToggle" class="navbar-toggler">
+            <i class="fas fa-bars"></i>
+        </button>
+        <ul id="navbarNav" class="navbar-nav">
+            <li><a href="#intro" class="nav-link">Welcome</a></li>
+            <li><a href="#principal" class="nav-link">Principal</a></li>
+            <li><a href="#about" class="nav-link">About</a></li>
+            <li><a href="#gallery" class="nav-link">Gallery</a></li>
+            <li><a href="#services" class="nav-link">Services</a></li>
+            <li><a href="#toppers" class="nav-link">Our Toppers</a></li>
+            <li><a href="#blog" class="nav-link">Blog</a></li>       
+        </ul>
+    </nav>
 
+    <!-- Intro Section -->
+    <section id="intro" class="intro-section">
+        <div class="intro-content">
+            <img src="2.jpg" alt="">
+      <h2>Welcome to DPSVMIC BILARI</h2>
+            <p>Shaping the future, one student at a time.</p><div>
+               
+            </div>
+        </div>
+    </section>
+<section> 
+    <div>
+        <br>
+    </div>
+    <br>
+    <div>
+       
+  
+   <video autoplay muted loop controls="false" width="400" height="300">
+  <source src="Intro.mp4" type="video/mp4">
+    
+    
+    
+    </section
+    <!-- Principal Section -->
+    <section id="principal" class="section principal-section">
+        <div class="container">
+            <h2 class="section-title">Our  Principal</h2>
+           
+            <div class="principal-content">
+                <img src="5.jpg"alt="Principal" class="principal-image">
+                 <div><h2><i> Mr. Sheetal Pratap Singh</i> </h2></div>
+               
+            
+        
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="container">
+            <h2 class="section-title">About Us</h2>
+            <div class="about-content">
+                <img src="1.jpg" alt="About Us" class="about-image">
+                
+             <h6>
+                    About DR. DEVENDRA PAL S.V.M.INTER COLLEGE
+              </h6></div>
+
+  <div class="about-text"  <div>>
+ p      <p>
+        DR. DEVENDRA PAL S.V.M.INTER COLLEGE was established in 1994 and it is managed by the Pvt. Unaided. It is located in Urban area. It is located in BILARI block of MORADABAD district of Uttar Pradesh. The school consists of Grades from 6 to 12. The school is Co-educational and it doesn't have an attached pre-primary section. The school is N/A in nature and is not using school building as a shift-school. Hindi is the medium of instructions in this school. This school is approachable by all weather road. In this school academic session starts in April.n April.</li>
+</p></div>    </p>
+      
+      
+      
+  </div>
+                <img src="2.jpg" alt="About Us" class="about-image">
+                <img src="3.jpg" alt="About Us" class="about-image">
+                <p> </p>
+                <iframe width="400" height="315" src="https://www.youtube.com/embed/4gm3MftkfSM?si=QjB2b7ClrQnjKR8F" frameborder="0"height="400" width="300px" autoplay="autoplay"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="section">
+        <div class="container">
+            <h2 class="section-title">Gallery</h2>
+            <div class="gallery-grid">
+                <!-- Add your gallery images here -->
+                <div class="gallery-item"><img src="images.jpeg" alt="Gallery Image 1"></div>
+                <div class="gallery-item"><img src="images (2).jpeg" alt="Gallery Image 2"></div>
+                <div class="gallery-item"><img src="images (4).jpeg" alt="Gallery Image 3"></div>
+                
+                <div class="gallery-item"><img src="images (7).jpeg" alt="Gallery Image 5"></div>
+                <div class="gallery-item"><img src="images (8).jpeg" alt="Gallery Image 6"></div>
+                <div class="gallery-item"><img src="images (10).jpeg" alt="Gallery Image 7"></div>
+                <div class="gallery-item"><img src="images (11).jpeg" alt="Gallery Image 8"></div>
+                <div class="gallery-item"><img src="images (12).jpeg" alt="Gallery Image 9"></div>   
+                <div class="gallery-item"><img src="FB_IMG_1717252433678.jpg" alt="Gallery Image 10"></div>
+                 <div class="gallery-item"><img src="FB_IMG_1717252480891.jpg" alt="Gallery Image 11"></div>  
+        
+    </section>
+<div>
+    <!--  Notice and Event Edit -->
+</div>
+              <div class="container">
+                   <section class="notice-events"> <h2>Notice & Events</h2>
+                    <ol> 
+                        <li>'कृमि से छुटकारा, सेहतमंद भविष्य हमारा' को ध्यान में रखते हुए राष्ट्रीय कृमि मुक्ति दिवस कार्यक्रम के अंतर्गत दिनांक 27-07-2022 दिन-गुरुवार को विद्यालय में सभी विद्यार्थियों को एल्बेंडाजोल की दवा खिलाई गयी।</li>
+                         <li>विद्यालय की कक्षा-द्वादश (ब) की छात्रा-बहिन सलोनी ने अपने जन्म दिवस के अवसर पर विद्यालय में कार्यरत कर्मचारी सेविका - मुन्नी देवी जी को एक साड़ी भेंट की।</li> 
+                         <li>गुरु पूर्णिमा के अवसर पर विद्यालय में वंदना सत्र के दौरान कार्यक्रम आयोजित किया गया। जिसमें वरिष्ठ आचार्य ओमप्रकाश जी ने गुरु के महत्व को विद्यार्थियों के समक्ष सम्बोधन के माध्यम से व्यक्त किया।</li>
+                          <li>ग्रीष्मअवकाश के पश्चात विद्यालय में आज दिनांक 01-07-2022, प्रात: 07:30 से विधिवत शिक्षण कार्य प्रारम्भ हो चुका है। विद्यार्थियों की शत प्रतिशत उपस्थिति अनिवार्य है।</li>
+                           <li>कक्षा - 11 में प्रवेश परीक्षा के उपरांत सफल विद्यार्थियों के प्रवेश की प्रक्रिया प्रारम्भ है। आवश्यक पत्राजात के साथ विद्यालय पहुँचकर अपना प्रवेश सुनिश्चित करें। [प्रवेश हेतु निम्न दस्तावेज़ अवश्य साथ लायें- 1. आधारकार्ड की छायाप्रति 2. दो फ़ोटो 3.मूल TC(Transfer Certificate) 4. पिछली कक्षा के रिज़ल्ट की छायाप्रति।]</li>
+                            <li>Highschool & Intermediate बोर्ड परीक्षा-2022 का परिणाम शत-प्रतिशत रहा।</li> </ol> </section> </div> 
+
+    <!-- Services Section -->
+    <section id="services" class="section">
+        <div class="container">
+            <h2 class="section-title">Our Services</h2>
+            <div class="services-grid">
+                <!-- Add your services here -->
+                <div class="service-item">
+                    <i class="fas fa-book"></i>
+                    <h3>Quality Education</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </div>
+                <div class="service-item">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                    <h3>Experienced Faculty</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </div>
+                <div class="service-item">
+                    <i class="fas fa-school"></i>
+                    <h3>Modern Facilities</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </div>
+                <div class="service-item">
+                    <i class="fas fa-laptop"></i>
+                    <h3>Digital Classrooms</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Toppers Section -->
+    <section id="toppers" class="section">
+        <div class="container">
+            <h2 class="section-title">Our Toppers</h2>
+            <div class="toppers-grid">
+                <!-- Add your toppers here -->
+                <div class="topper-item">
+                    <img src="3796accd9f794f09a10d1d10f6545da2.jpg" alt="Topper 1">
+                    <h3>Anuj Kumar</h3>
+                    <p>1865/2000</p>
+                </div>
+                <div class="topper-item">
+                    <img src="600f269447524faf844b80a552be7935.jpg" alt="Topper 2">
+                    <h3>Hemant Choudhary</h3>
+                    <p>1945/2000</p>
+                </div>
+                <div class="topper-item">
+                    <img src="0b9ce12e702d448ba0a0ee57034a12b5.jpg" alt="Topper 3">
+                    <h3>Laksha Vardhan</h3>
+                    <p>1961/2000</p>
+                </div>
+                <div class="topper-item">
+                    <img src="5021170d56d84a19bf9e0a76f6bd9a7b.jpg" alt="Topper 4">
+                    <h3>Rinku Maurya</h3>
+                    <p>1141/1200</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section id="blog" class="section">
+        <div class="container">
+            <h2 class="section-title">Latest Blog Posts</h2>
+            <div class="blog-grid">
+                <!-- Add your blog posts here -->
+                <div class="blog-item">
+                    <h3>Blog Post 1</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </div>
+                <div class="blog-item">
+                    <h3>Blog Post 2</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </div>
+                <div class="blog-item">
+                    <h3>Blog Post 3</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </div>
+                <div class="blog-item">
+                    <h3>Blog Post 4</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    
+    <!-- This is the Important Links -->
     <div class="container">
-        <div class="main-title">Dk Official</div>
-        <h1>Free Fire Max T20 Tournament</h1>
-        <div class="notification">
-            <p>Hello Domsto, the Free Fire tournament is held on 1 June at 4:00 PM. Only 20 persons registered with FF username. You can participate with only ₹40 by contacting me via UID.</p>
-        </div>
-        <p>
-            <span class="highlight">Introduction:</span><br>
-            Free Fire Max, the captivating battle royale sensation, has taken the gaming world by storm. In this thrilling tournament, you have the opportunity to immerse yourself in heart-pounding battles, showcasing your gaming prowess, tactical brilliance, and mastery of the game. Unleash your strategic thinking, teamwork, and survival skills as you compete against fellow students in the ultimate test of wit and reflexes.
-        </p>
-        <img src="https://www.dropbox.com/scl/fi/n9z4mzyovww0092wyyswy/15695-Free-Fire.jpg?rlkey=npbdidvfoxpopw5f5c1pks23q&dl=1" alt="Free Fire Max Tournament">
-        <p>
-            Note:-⭐⭐ Tournament Will be announced On 1st June Dear ⭐⭐ Free Fire enthusiasts, Wissenaire’24 is back with another thrilling event. This time we are conducting a Free Fire Max Tournament. If you already have a team, get off, compete against your teammates, and see who is best among your team. Start preparing yourself to fight against your friends and other college students to claim the prize pool.
-        </p>
-        <p>
-            For every kill, a user gets ₹20. <br>
-            1st prize = ₹100 + kill prize, <br>
-            2nd prize = ₹80 + kill prize, <br>
-            3rd prize = ₹70 + kill prize. <br>
-            <span class="highlight">Note:</span> Per kill prize contributed by participants.
-        </p>
-
-        <!-- Video Section -->
-        <video id="tournament-video" width="100%" controls style="margin-top: 20px;">
-            <source src="https://www.dropbox.com/scl/fi/sb8z2q5qi1hz586r9gmlf/Free_Fire_Tournament_Teaser____Garena_Free_Fire-1080p60.mp4?rlkey=q3pjsd9m82ctm5im483twe5c1&dl=1" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-
-        <div class="registration-form">
-            <input type="text" id="real-name" placeholder="Enter your real name">
-            <input type="text" id="ff-uid" placeholder="Enter your Free Fire UID">
-            <input type="password" id="password" placeholder="Enter your password">
-            <button onclick="registerUser()">Register</button>
+        <h1>Important Links</h1>
+                <div class="card">
+            <img src="1.png" alt="NISHTHA">
+            <div class="card-body">
+                <h3>NISHTHA</h3>
+                <p>A National Initiative for School Heads' and Teachers' Holistic Advancement.</p>
+                <a href="https://itpd.ncert.gov.in/">More info..</a>
+            </div>
         </div>
 
-        <div id="participant-section" class="participant-section">
-            <p class="glowing-text">Congratulations! You have become a participant of the tournament.</p>
-            <p>This is a private channel. Send your details in it because our site is under maintenance.</p>
-            <p><a href="https://t.me/+WOdx4ncCXN9jMTA1" id="private-link" target="_blank">Join Private Channel</a></p>
-            <p>Guidelines:</p>
-            <ul>
-                <li>After joining the channel, send me your real name, FF username, FF UID, and participant code.</li>
-                <li>If you don't have a code, contact me to buy a code for only ₹40.</li>
-                <li> Contact me On my whatapp 7037700795 </li>
-            </ul>
+        <div class="card">
+            <img src="2.png" alt="DIKSHA">
+            <div class="card-body">
+                <h3>DIKSHA</h3>
+                <p>The National Digital Infrastructure for Teachers.</p>
+                <a href="https://diksha.gov.in/">More info..</a>
+            </div>
         </div>
+
+        <div class="card">
+            <img src="3.png" alt="SHAGUN">
+            <div class="card-body">
+                <h3>SHAGUN</h3>
+                <p>School Education Shagun Repository.</p>
+                <a href="https://shagun.gov.in/">More info..</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="4.png" alt="NROER">
+            <div class="card-body">
+                <h3>NROER</h3>
+                <p>National Repository of Open Educational Resources.</p>
+                <a href="http://nroer.gov.in/">More info..</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="5.png" alt="NDL">
+            <div class="card-body">
+                <h3>NDL</h3>
+                <p>National Digital Library of India.</p>
+                <a href="https://www.ndl.gov.in/">More info..</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="6.png" alt="EPATHSHALA">
+            <div class="card-body">
+                <h3>EPATHSHALA</h3>
+                <p>An initiative to provide digital resources for schools.</p>
+                <a href="https://epathshala.nic.in/">More info..</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="7.png" alt="SWAYAM">
+            <div class="card-body">
+                <h3>SWAYAM</h3>
+                <p>An initiative to provide open online courses.</p>
+                <a href="https://swayam.gov.in/">More info..</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="8.png" alt="SWAYAM PRABHA">
+            <div class="card-body">
+                <h3>SWAYAM PRABHA</h3>
+                <p>Educational DTH channels to reach the un-reached.</p>
+                <a href="https://www.swayamprabha.gov.in/">More info..</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="9.png" alt="Arogya Setu App">
+            <div class="card-body">
+                <h3>Arogya Setu App</h3>
+                <p>A mobile application developed to connect essential health services.</p>
+                <a href="https://www.mygov.in/aarogya-setu-app/">More info..</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="10.png" alt="Virtual Lab">
+            <div class="card-body">
+                <h3>Virtual Lab</h3>
+                <p>Providing remote access to labs in various disciplines of science and engineering.</p>
+                <a href="http://vlab.co.in/">More info..</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="11.png" alt="Vikaspedia">
+            <div class="card-body">
+                <h3>Vikaspedia</h3>
+                <p>A knowledge portal for various development domains.</p>
+                <a href="https://vikaspedia.in/">More info..</a>
+            </div>
+        </div>
+
     </div>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            var audio = document.getElementById("background-music");
-            audio.play().catch(function() {
-                console.log("Background music play was prevented.");
-            });
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 DPSVMIC BILARI. All rights reserved.</p>
+    </footer>
 
-            var video = document.getElementById("tournament-video");
-            video.addEventListener("play", function() {
-                audio.pause();
-            });
-            video.addEventListener("pause", function() {
-                audio.play();
-            });
-            video.addEventListener("ended", function() {
-                audio.play();
-            });
-
-            window.addEventListener("beforeunload", function() {
-                audio.pause();
-            });
-        });
-
-        function registerUser() {
-            var name = document.getElementById("real-name").value;
-            var uid = document.getElementById("ff-uid").value;
-            var password = document.getElementById("password").value;
-
-            if (name && uid && password === "GODXWARRIOR") {
-                localStorage.setItem('registered', 'true');
-                document.getElementById("participant-section").style.display = "block";
-                document.querySelector('.container').style.border = "3px solid #00ffcc";
-                document.querySelector('.notification').style.display = "none";
-                displaySuccessMessage();
-            } else {
-                alert("Please fill all the fields correctly to register.");
-            }
-        }
-
-        document.addEventListener("DOMContentLoaded", function() {
-            if (localStorage.getItem('registered') === 'true') {
-                document.getElementById("participant-section").style.display = "block";
-                document.querySelector('.container').style.border = "3px solid #00ffcc";
-                document.querySelector('.notification').style.display = "none";
-            }
-        });
-
-        function displaySuccessMessage() {
-            const container = document.querySelector('.container');
-            const successMessage = document.createElement('div');
-            successMessage.className = 'success-message';
-            successMessage.style.position = 'fixed';
-            successMessage.style.top = '50%';
-            successMessage.style.left = '50%';
-            successMessage.style.transform = 'translate(-50%, -50%)';
-            successMessage.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
-            successMessage.style.padding = '20px';
-            successMessage.style.borderRadius = '10px';
-            successMessage.style.border = '3px solid #ffcc00';
-            successMessage.style.color = '#fff';
-            successMessage.style.fontSize = '1.5em';
-            successMessage.style.zIndex = '1000';
-            successMessage.innerHTML = '<p>Welcome to the tournament!</p><p>You are now registered.</p>';
-            successMessage.style.animation = 'fadeInOut 5s infinite';
-
-            document.body.appendChild(successMessage);
-
-            setTimeout(() => {
-                successMessage.remove();
-            }, 5000);
-        }
-    </script>
+    <script src="scripts.js"></script>
 </body>
 </html>
